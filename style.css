@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+    --primary: #0d6efd;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #ffffff;
+}
+
+/* LOGIN */
+.login-card {
+    width: 380px;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* NAVBAR */
+.navbar {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* CARDS */
+.card {
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* MAP */
+#map {
+    height: 320px;
+    border-radius: 14px;
+    border: 1px solid #dee2e6;
+}
+
+/* ISSUES */
+.issue {
+    background: #fff;
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 14px;
+    border-left: 6px solid var(--primary);
+}
+
+.badge {
+    border-radius: 8px;
+}
+
+/* DARK MODE */
+.dark-mode {
+    background: #121212 !important;
+    color: #e0e0e0;
+}
+
+.dark-mode .card,
+.dark-mode .issue {
+    background: #1e1e1e;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+    background: #2a2a2a;
+    color: #fff;
+}
