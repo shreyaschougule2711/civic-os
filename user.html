@@ -11,7 +11,7 @@
 
 <body class="bg-light">
 
-    <nav class="navbar navbar-dark bg-primary px-4 d-flex justify-content-between">
+    <nav class="navbar navbar-dark bg-primary px-4">
         <span class="navbar-brand">
             <i class="bi bi-geo-alt-fill"></i> CIVIC-OS | User
         </span>
@@ -26,20 +26,38 @@
 
         <div class="row">
             <div class="col-md-5">
-                <div class="card p-3">
+                <div class="card p-3 glass-card">
                     <h5 class="fw-semibold mb-3">Report Civic Issue</h5>
+
                     <input id="title" class="form-control mb-2" placeholder="Issue Title">
                     <textarea id="desc" class="form-control mb-2" placeholder="Describe the issue"></textarea>
+
+                    <!-- 🔹 NEW: Manual Location Info -->
+                    <input class="form-control mb-2" placeholder="Area / Landmark (optional)">
+
+                    <small class="text-muted d-block mb-2">
+                        📍 Click on map to select issue location
+                    </small>
+
                     <input type="file" id="image" class="form-control mb-3">
-                    <button class="btn btn-primary w-100" onclick="submitIssue()">Submit</button>
+                    <button class="btn btn-primary w-100" onclick="submitIssue()">
+                        Submit Issue
+                    </button>
                 </div>
             </div>
 
             <div class="col-md-7">
-                <div class="card p-3">
+                <div class="card p-3 glass-card">
                     <h5 class="fw-semibold mb-3">Live Issue Map</h5>
                     <div id="map"></div>
                 </div>
+                <div class="card p-3 mt-4 glass-card">
+                    <h5 class="fw-semibold mb-3">
+                        👍 Community Issues (Upvote)
+                    </h5>
+                    <div id="userIssues"></div>
+                </div>
+
             </div>
         </div>
     </div>

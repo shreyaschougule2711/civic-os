@@ -11,7 +11,7 @@
 
 <body class="bg-light">
 
-    <nav class="navbar navbar-dark bg-dark px-4 d-flex justify-content-between">
+    <nav class="navbar navbar-dark bg-dark px-4">
         <span class="navbar-brand">
             <i class="bi bi-shield-check"></i> CIVIC-OS | Admin
         </span>
@@ -23,28 +23,30 @@
 
     <div class="container mt-4">
 
-        <!-- SEVERITY CHART -->
-        <div class="card p-3 mb-3">
+        <div class="card p-3 mb-3 glass-card">
             <h5 class="fw-semibold mb-3">Issue Severity Overview</h5>
             <canvas id="severityChart" height="120"></canvas>
         </div>
 
-        <div class="card p-3 mb-3">
+        <div class="card p-3 mb-3 glass-card">
             <input id="searchBox" class="form-control mb-2" placeholder="Search issues..." onkeyup="displayIssues()">
             <select id="statusFilter" class="form-select mb-2" onchange="displayIssues()">
                 <option value="all">All</option>
                 <option value="Open">Open</option>
             </select>
-            <button class="btn btn-success w-100 mb-2" onclick="exportCSV()">Export CSV</button>
+            <button class="btn btn-success w-100 mb-2" onclick="exportCSV()">
+                Export CSV
+            </button>
+
             <button class="btn btn-secondary w-100" onclick="showResolvedIssues()">View Resolved Issues</button>
         </div>
 
-        <div class="card p-3 mb-3">
+        <div class="card p-3 mb-3 glass-card">
             <h5 class="fw-semibold mb-3">Reported Issues</h5>
             <div id="issues"></div>
         </div>
 
-        <div class="card p-3">
+        <div class="card p-3 glass-card">
             <h5 class="fw-semibold mb-3">Digital Twin Map</h5>
             <div id="map"></div>
         </div>

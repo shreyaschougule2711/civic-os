@@ -1,68 +1,458 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+/* =========================================================
+   CIVIC-OS : COMPLETE UI STYLESHEET
+   Safe CSS only — NO logic dependency
+   ========================================================= */
 
+/* -------------------- GOOGLE FONT -------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* -------------------- ROOT VARIABLES -------------------- */
 :root {
-    --primary: #0d6efd;
+    --primary: #4f46e5;
+    --secondary: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --glass: rgba(255, 255, 255, 0.85);
+    --border-soft: rgba(0, 0, 0, 0.08);
+    --radius-lg: 18px;
+    --radius-md: 14px;
+    --radius-sm: 10px;
+}
+
+/* -------------------- GLOBAL RESET -------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: "Inter", sans-serif;
-    background-color: #ffffff;
+    background: #f1f5f9;
+    color: #0f172a;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
-/* LOGIN */
+/* -------------------- BACKGROUND -------------------- */
+.bg-gradient {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+}
+
+/* -------------------- LINKS -------------------- */
+a {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+a:hover {
+    color: #3730a3;
+}
+
+/* -------------------- NAVBAR -------------------- */
+.navbar {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(6px);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* -------------------- BUTTONS -------------------- */
+.btn {
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    padding: 10px 16px;
+    transition: all 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    border: none;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    border: none;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border: none;
+}
+
+/* -------------------- FORMS -------------------- */
+.form-control,
+.form-select {
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-soft);
+    padding: 10px 12px;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* -------------------- CARDS -------------------- */
+.card {
+    border-radius: var(--radius-lg);
+    border: none;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.card h5 {
+    font-weight: 600;
+}
+
+/* -------------------- GLASS CARD -------------------- */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* -------------------- LOGIN CARD -------------------- */
 .login-card {
     width: 380px;
-    border-radius: 16px;
-    border: none;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    padding: 26px;
+    border-radius: var(--radius-lg);
+    animation: fadeInUp 0.6s ease;
 }
 
-/* NAVBAR */
-.navbar {
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-}
-
-/* CARDS */
-.card {
-    border-radius: 16px;
-    border: none;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-/* MAP */
+/* -------------------- MAP -------------------- */
 #map {
     height: 320px;
-    border-radius: 14px;
-    border: 1px solid #dee2e6;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-soft);
 }
 
-/* ISSUES */
+/* -------------------- ISSUE CARD -------------------- */
 .issue {
-    background: #fff;
-    border-radius: 14px;
-    padding: 14px;
-    margin-bottom: 14px;
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin-bottom: 16px;
     border-left: 6px solid var(--primary);
+    transition: all 0.3s ease;
 }
 
+.issue:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+}
+
+.issue b {
+    font-size: 15px;
+}
+
+.issue p {
+    font-size: 14px;
+    color: #475569;
+}
+
+/* -------------------- BADGES -------------------- */
 .badge {
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+    font-weight: 500;
+}
+
+/* -------------------- PROGRESS -------------------- */
+.progress {
+    height: 8px;
+    border-radius: 6px;
+    background: #e5e7eb;
+}
+
+.progress-bar {
+    font-size: 10px;
+    font-weight: 600;
+    background: linear-gradient(90deg, #4f46e5, #22c55e);
+}
+
+/* -------------------- IMAGES -------------------- */
+img {
+    border-radius: var(--radius-sm);
+}
+
+/* -------------------- TABLES -------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+/* -------------------- SCROLLBAR -------------------- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#4f46e5, #22c55e);
     border-radius: 8px;
 }
 
-/* DARK MODE */
+/* -------------------- DARK MODE -------------------- */
 .dark-mode {
-    background: #121212 !important;
-    color: #e0e0e0;
+    background: #0f172a !important;
+    color: #e5e7eb;
 }
 
 .dark-mode .card,
 .dark-mode .issue {
-    background: #1e1e1e;
+    background: #111827;
 }
 
 .dark-mode input,
 .dark-mode textarea,
 .dark-mode select {
-    background: #2a2a2a;
+    background: #1f2933;
     color: #fff;
+    border-color: #334155;
+}
+
+.dark-mode .navbar {
+    background: #020617 !important;
+}
+
+.dark-mode .progress {
+    background: #1f2937;
+}
+
+/* -------------------- ANIMATIONS -------------------- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* -------------------- UTILITIES -------------------- */
+.text-muted {
+    color: #64748b !important;
+}
+
+.shadow-soft {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.rounded-xl {
+    border-radius: 22px;
+}
+
+.mt-6 {
+    margin-top: 3rem;
+}
+
+/* -------------------- MOBILE RESPONSIVE -------------------- */
+@media (max-width: 768px) {
+    .login-card {
+        width: 100%;
+    }
+
+    #map {
+        height: 260px;
+    }
+
+    .navbar-brand {
+        font-size: 14px;
+    }
+}
+
+/* -------------------- FOOTER PLACEHOLDER -------------------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* =========================================================
+   END OF FILE — SAFE, STABLE, BEAUTIFUL
+   ========================================================= */
+
+
+/* =====================================================
+   🍎 DARK MODE – APPLE-LIKE REFINEMENT
+   ===================================================== */
+
+.dark-mode {
+    background: #0b0f14 !important;
+    color: #e5e7eb;
+}
+
+/* Primary surfaces */
+.dark-mode .card,
+.dark-mode .issue,
+.dark-mode .glass-card {
+    background: rgba(20, 24, 31, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Headings & titles */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode b {
+    color: #f9fafb;
+}
+
+/* Paragraph & muted text */
+.dark-mode p {
+    color: #cbd5e1;
+}
+
+.dark-mode .text-muted {
+    color: #94a3b8 !important;
+}
+
+/* Navbar */
+.dark-mode .navbar {
+    background: rgba(8, 10, 14, 0.95) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+/* ===== DARK MODE INPUTS ===== */
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+    background: rgba(30, 34, 42, 0.95);
+    color: #f1f5f9;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+    color: #9ca3af;
+}
+
+/* ===== BUTTON POLISH ===== */
+.dark-mode .btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #e5e7eb;
+}
+
+.dark-mode .btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* =====================================================
+   🚀 PREMIUM PROGRESS BAR
+   ===================================================== */
+
+.progress {
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(148, 163, 184, 0.15);
+    overflow: hidden;
+}
+
+/* Light mode */
+.progress-bar {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #fff;
+    border-radius: 999px;
+    background: linear-gradient(90deg,
+            #4f46e5,
+            #6366f1,
+            #22c55e);
+    animation: progressGlow 3s ease infinite;
+}
+
+/* Dark mode override */
+.dark-mode .progress {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.dark-mode .progress-bar {
+    background: linear-gradient(90deg,
+            #6366f1,
+            #22d3ee,
+            #22c55e);
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.6);
+}
+
+/* Subtle animated glow */
+@keyframes progressGlow {
+    0% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.2);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
+}
+
+
+/* =====================================================
+   📦 ISSUE CARD – APPLE UI FEEL
+   ===================================================== */
+
+.issue {
+    backdrop-filter: blur(16px);
+}
+
+.dark-mode .issue {
+    background: linear-gradient(180deg,
+            rgba(30, 34, 42, 0.95),
+            rgba(20, 24, 31, 0.95));
+}
+
+.issue:hover {
+    transform: translateY(-5px) scale(1.01);
+}
+
+/* ===== SMOOTH TEXT RENDERING ===== */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== BADGES ===== */
+.dark-mode .badge {
+    background: rgba(255, 255, 255, 0.15);
+    color: #f8fafc;
 }
